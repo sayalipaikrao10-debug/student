@@ -1,4 +1,4 @@
-s<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,53 +6,308 @@ s<!DOCTYPE html>
     <title>Smart Classroom Energy Saver</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<header class="topbar">
-    <div class="brand">
-        <div class="brand-icon">🌿</div>
-        <div>
-            <h1>EcoClass</h1>
-            <p>Smart Classroom Energy Saver</p>
-        </div>
-    </div>
-    <span class="live-badge">
-        <span class="dot"></span> System Online
-    </span>
-</header>
+<div class="app">
 
-<main class="container">
-
-    <section class="welcome">
-        <div>
-            <p class="eyebrow">SMART ENERGY MANAGEMENT</p>
-            <h2>Good day, Classroom! 👋</h2>
-            <p>Monitor classroom devices and save energy intelligently.</p>
-        </div>
-        <div class="welcome-icon">🏫</div>
-    </section>
-
-    <section class="stats-grid">
-
-        <div class="stat-card">
-            <div class="stat-top">
-                <span>Total Devices</span>
-                <span class="stat-icon">⚡</span>
+    <aside class="sidebar">
+        <div class="brand">
+            <div class="brand-icon">⚡</div>
+            <div>
+                <h2>EcoClass</h2>
+                <small>SMART CAMPUS</small>
             </div>
-            <h3>2</h3>
-            <p>Lights and fans</p>
         </div>
 
-        <div class="stat-card">
-            <div class="stat-top">
-                <span>Active Devices</span>
-                <span class="stat-icon">🔌</span>
+        <p class="menu-title">MAIN MENU</p>
+
+        <button class="nav active" data-target="dashboard">▦ Dashboard</button>
+        <button class="nav" data-target="devices">◉ Device Control</button>
+        <button class="nav" data-target="energy">ϟ Energy Analytics</button>
+
+        <div class="sidebar-bottom">
+            <div class="eco-circle">🌱</div>
+            <h3>Go Green!</h3>
+            <p>Save electricity.<br>Build a smarter future.</p>
+        </div>
+    </aside>
+
+    <main class="main">
+
+        <header class="topbar">
+            <div>
+                <p class="eyebrow">SMART CAMPUS / CLASSROOM 01</p>
+                <h1>Energy Control Center</h1>
+                <p class="subtitle">Intelligent classroom monitoring system</p>
             </div>
-            <h3 id="activeDevices">0</h3>
-            <p>Currently running</p>
+
+            <div class="top-actions">
+                <span class="live-badge"><span></span> SYSTEM ONLINE</span>
+                <div class="avatar">SC</div>
+            </div>
+        </header>
+
+        <section class="hero">
+            <div class="hero-content">
+                <span class="hero-tag">✦ INTELLIGENT AUTOMATION</span>
+                <h2>Every Watt<br>Counts.</h2>
+                <p>
+                    Smart sensors automatically manage classroom
+                    lighting and fans to reduce unnecessary energy use.
+                </p>
+
+                <div class="hero-buttons">
+                    <button class="primary-btn" id="autoButton">
+                        ⚡ Auto Mode: ON
+                    </button>
+                    <span class="hero-status" id="heroStatus">
+                        ● Energy saving active
+                    </span>
+                </div>
+            </div>
+
+            <div class="hero-art">
+                <div class="orbit orbit-one"></div>
+                <div class="orbit orbit-two"></div>
+                <div class="bulb">💡</div>
+                <div class="art-label label-one">SMART LIGHTING</div>
+                <div class="art-label label-two">LOW ENERGY</div>
+                <div class="leaf">🌿</div>
+            </div>
+        </section>
+
+        <section class="stats">
+            <article class="stat-card">
+                <div class="stat-top">
+                    <span>Classroom Occupancy</span>
+                    <span class="stat-icon">👨‍🎓</span>
+                </div>
+                <h2 id="studentCount">24 <small>students</small></h2>
+                <p id="occupancyText" class="positive">● Classroom occupied</p>
+            </article>
+
+            <article class="stat-card">
+                <div class="stat-top">
+                    <span>Power Consumption</span>
+                    <span class="stat-icon">⚡</span>
+                </div>
+                <h2><span id="powerValue">180</span> <small>W</small></h2>
+                <p class="muted">Estimated live load</p>
+            </article>
+
+            <article class="stat-card">
+                <div class="stat-top">
+                    <span>Energy Saved</span>
+                    <span class="stat-icon">🌱</span>
+                </div>
+                <h2><span id="savingValue">35</span><small>%</small></h2>
+                <p class="positive">✦ Saving estimate</p>
+            </article>
+
+            <article class="stat-card">
+                <div class="stat-top">
+                    <span>Room Temperature</span>
+                    <span class="stat-icon">🌡️</span>
+                </div>
+                <h2><span id="temperatureValue">25</span><small>°C</small></h2>
+                <p class="muted">Temperature sensor</p>
+            </article>
+        </section>
+
+        <div class="section-heading">
+            <div>
+                <h2>Classroom Devices</h2>
+                <p>Control and monitor connected equipment</p>
+            </div>
+            <span class="device-count">3 DEVICES</span>
         </div>
 
-        <div class="stat-card">
-            <div class="stat-top">
-                <span>Energy Status</span>
-                <span class="stat-icon">🌱</
+        <section class="devices" id="devices">
+
+            <article class="device-card">
+                <div class="device-head">
+                    <div class="device-icon light-icon">💡</div>
+                    <span class="device-state" id="lightState">ON</span>
+                </div>
+
+                <h3>Smart Lighting</h3>
+                <p>Ceiling lights · Zone A</p>
+
+                <div class="device-info">
+                    <span>Power rating</span>
+                    <strong>120 W</strong>
+                </div>
+
+                <div class="device-info">
+                    <span>Brightness</span>
+                    <strong id="brightness">80%</strong>
+                </div>
+
+                <input type="range" min="0" max="100" value="80"
+                       id="brightnessSlider" aria-label="Light brightness">
+
+                <button class="device-button" id="lightButton">
+                    Turn Lights OFF
+                </button>
+            </article>
+
+            <article class="device-card">
+                <div class="device-head">
+                    <div class="device-icon fan-icon">🌀</div>
+                    <span class="device-state" id="fanState">ON</span>
+                </div>
+
+                <h3>Smart Fan</h3>
+                <p>Ceiling fan · Zone A</p>
+
+                <div class="device-info">
+                    <span>Power rating</span>
+                    <strong>60 W</strong>
+                </div>
+
+                <div class="device-info">
+                    <span>Fan speed</span>
+                    <strong id="fanSpeed">Medium</strong>
+                </div>
+
+                <div class="speed-buttons">
+                    <button data-speed="Low">Low</button>
+                    <button data-speed="Medium" class="selected">Medium</button>
+                    <button data-speed="High">High</button>
+                </div>
+
+                <button class="device-button" id="fanButton">
+                    Turn Fan OFF
+                </button>
+            </article>
+
+            <article class="device-card sensor-card">
+                <div class="device-head">
+                    <div class="device-icon sensor-icon">📡</div>
+                    <span class="device-state sensor-active" id="sensorState">ACTIVE</span>
+                </div>
+
+                <h3>Presence Sensor</h3>
+                <p>Motion detection · Classroom</p>
+
+                <div class="sensor-visual">
+                    <span class="sensor-wave wave-one"></span>
+                    <span class="sensor-wave wave-two"></span>
+                    <span class="sensor-person">🧍</span>
+                </div>
+
+                <div class="device-info">
+                    <span>Detection</span>
+                    <strong id="presenceValue">Student detected</strong>
+                </div>
+
+                <button class="device-button" id="presenceButton">
+                    Simulate Empty Room
+                </button>
+            </article>
+
+        </section>
+
+        <section class="bottom-grid" id="energy">
+
+            <article class="panel">
+                <div class="panel-header">
+                    <div>
+                        <h2>Energy Insights</h2>
+                        <p>Illustrative weekly energy usage</p>
+                    </div>
+                    <span class="chart-tag">kWh</span>
+                </div>
+
+                <div class="chart" id="energyChart">
+                    <div class="bar-item">
+                        <div class="bar" style="height:48%"></div>
+                        <span>Mon</span>
+                    </div>
+                    <div class="bar-item">
+                        <div class="bar" style="height:72%"></div>
+                        <span>Tue</span>
+                    </div>
+                    <div class="bar-item">
+                        <div class="bar" style="height:57%"></div>
+                        <span>Wed</span>
+                    </div>
+                    <div class="bar-item">
+                        <div class="bar" style="height:85%"></div>
+                        <span>Thu</span>
+                    </div>
+                    <div class="bar-item">
+                        <div class="bar" style="height:42%"></div>
+                        <span>Fri</span>
+                    </div>
+                    <div class="bar-item">
+                        <div class="bar" style="height:30%"></div>
+                        <span>Sat</span>
+                    </div>
+                    <div class="bar-item">
+                        <div class="bar" style="height:18%"></div>
+                        <span>Sun</span>
+                    </div>
+                </div>
+
+                <div class="chart-footer">
+                    <span>Lower usage means less waste</span>
+                    <strong>Eco monitoring</strong>
+                </div>
+            </article>
+
+            <article class="panel">
+                <div class="panel-header">
+                    <div>
+                        <h2>System Activity</h2>
+                        <p>Recent classroom events</p>
+                    </div>
+                    <span class="live-text">LIVE</span>
+                </div>
+
+                <div class="activity-list" id="activityList">
+                    <div class="activity">
+                        <span class="activity-icon">💡</span>
+                        <div>
+                            <strong>Lighting system ready</strong>
+                            <small>Smart lighting controller</small>
+                        </div>
+                        <time>NOW</time>
+                    </div>
+
+                    <div class="activity">
+                        <span class="activity-icon">🌀</span>
+                        <div>
+                            <strong>Fan controller active</strong>
+                            <small>Cooling management</small>
+                        </div>
+                        <time>NOW</time>
+                    </div>
+
+                    <div class="activity">
+                        <span class="activity-icon">📡</span>
+                        <div>
+                            <strong>Presence detected</strong>
+                            <small>Occupancy monitoring</small>
+                        </div>
+                        <time>NOW</time>
+                    </div>
+                </div>
+            </article>
+
+        </section>
+
+        <footer>
+            <span>© 2026 EcoClass · Smart Classroom Energy Saver</span>
+            <span>DESIGNED FOR A GREENER CAMPUS 🌿</span>
+        </footer>
+
+    </main>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="script.js"></script>
+</body>
+                                                   </html>
